@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>User</title>
+</head>
+
+<style>table {
+  font-family: "Times New Roman", Times, serif;
+  border: 2px solid #4F7849;
+  background-color: #EEEEEE;
+  width: 50%;
+  height: 50px;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+table.comicGreen td, table.comicGreen th {
+  border: 1px solid #4F7849;
+  padding: 3px 2px;
+}
+
+table.comicGreen tbody td {
+  font-size: 19px;
+  font-weight: bold;
+  color: #4F7849;
+}
+
+table.comicGreen tr:nth-child(even) {
+  background: #CEE0CC;
+}
+
+table.comicGreen tfoot td {
+  font-size: 21px;
+}</style>
+
+<body>
+<table class="table_blur">
+  <tr>
+    <th colspan="5" text-align="center">Пользователь</th>
+  </tr>
+  <tr>
+    <th>ID</th>
+    <th>Имя</th>
+    <th>Фамилия</th>
+    <th>Возраст</th>
+    <th>Пароль</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td><p th:text="${user.getId()}">VALUE</p></td>
+    <td><p th:text="${user.getUsername()}">VALUE</p></td>
+    <td><p th:text="${user.getLastName()}">VALUE</p></td>
+    <td><p th:text="${user.getAge()}">VALUE</p></td>
+    <td><p th:text="${user.getPassword()}">VALUE</p></td>
+    <td><a th:href="@{/users/{id}/edit(id=${user.getId()})}"><input type="submit" value="Изменить"/></a></td>
+    <td>
+      <form th:method="delete" th:action="@{/users/{id}(id=${user.getId()})}">
+        <input type="submit" value="Удалить"/></form>
+  </tr>
+  <tr>
+
+
+  </tr>
+</table>
+</body>
+</html>
