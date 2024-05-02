@@ -1,20 +1,23 @@
 package ru.itmentor.spring.boot_security.demo.controller;
 
-
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.itmentor.spring.boot_security.demo.model.User;
 import ru.itmentor.spring.boot_security.demo.service.RoleService;
 import ru.itmentor.spring.boot_security.demo.service.UserService;
-
 @Controller
-@RequiredArgsConstructor
 public class AdminController {
 
    private final UserService userService;
    private final RoleService roleService;
+
+   @Autowired
+   public AdminController(UserService userService, RoleService roleService) {
+      this.userService = userService;
+      this.roleService = roleService;
+   }
 
    @GetMapping("/admin")
    public String getAllUser(Model model) {
@@ -28,8 +31,8 @@ public class AdminController {
       return "new";
    }
    @PostMapping("/admin")
-   public String create(@ModelAttribute("user") User user) {
-      userService.getNotNullRole(user);
+   public String create(@ModelAttribute("user") User user,@RequestParam(value = "nameRoles", required = false) String[] roles) {
+      userService.getUserAndRoles(user,roles);
       userService.create(user);
       return "redirect:/admin";
    }

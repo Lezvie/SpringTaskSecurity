@@ -46,12 +46,10 @@ table.comicGreen tfoot td {
     </tr>
 
     <tr th:each="user : ${users}">
-        <td><a th:href="@{/users/{id}(id=${user.getId()})}" th:text="${user.getId()}">user</a></td>
-        <td><a th:href="@{/users/{id}(id=${user.getId()})}" th:text="${user.getUsername()}">user</a></td>
-        <td><a th:href="@{/users/{id}(id=${user.getId()})}" th:text="${user.getLastName()}">user</a></td>
-        <td><a th:href="@{/users/{id}(id=${user.getId()})}" th:text="${user.getAge()}">user</a></td>
-        <td><a th:href="@{/users/{id}/edit(id=${user.getId()})}"><input type="submit" value="Изменить"/></a></td>
-        <td></td>
+        <td><a th:href="@{/user/{id}(id=${user.getId()})}" th:text="${user.getId()}">user</a></td>
+        <td><a th:href="@{/user/{id}(id=${user.getId()})}" th:text="${user.getUsername()}">user</a></td>
+        <td><a th:href="@{/user/{id}(id=${user.getId()})}" th:text="${user.getLastName()}">user</a></td>
+        <td><a th:href="@{/user/{id}(id=${user.getId()})}" th:text="${user.getAge()}">user</a></td>
     </tr>
 </table>
 <tr>

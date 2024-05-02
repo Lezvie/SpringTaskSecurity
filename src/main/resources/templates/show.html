@@ -53,9 +53,9 @@ table.comicGreen tfoot td {
     <td><p th:text="${user.getLastName()}">VALUE</p></td>
     <td><p th:text="${user.getAge()}">VALUE</p></td>
     <td><p th:text="${user.getPassword()}">VALUE</p></td>
-    <td><a th:href="@{/users/{id}/edit(id=${user.getId()})}"><input type="submit" value="Изменить"/></a></td>
+    <td><a th:href="@{/user/{id}/edit(id=${user.getId()})}"><input type="submit" value="Изменить"/></a></td>
     <td>
-      <form th:method="delete" th:action="@{/users/{id}(id=${user.getId()})}">
+      <form th:method="delete" th:action="@{/user/{id}(id=${user.getId()})}">
         <input type="submit" value="Удалить"/></form>
   </tr>
   <tr>

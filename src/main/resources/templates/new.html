@@ -53,6 +53,14 @@ table.comicGreen tfoot td {
             <td><input type="text" th:field="*{age}" id="age"/></td>
             <td><input type="text" th:field="*{password}" id="password"/></td>
             <td><input type="submit" value="Создать"/></td>
+            <br/>
+            <select name="nameRoles" multiple size="2">
+                <option th:each="role : ${roles}"
+                        th:value="${role.name}"
+                        th:text="${role.getName()}">
+                </option>
+            </select>
+            <br>
         </form>
     </tr>
 </table>
