@@ -46,33 +46,19 @@ table.comicGreen tfoot td {
     </tr>
 
     <tr th:each="user : ${users}">
-        <td><a th:href="@{/admin/{id}(id=${user.getId()})}" th:text="${user.getId()}">user</a></td>
-        <td><a th:href="@{/admin/{id}(id=${user.getId()})}" th:text="${user.getUsername()}">user</a></td>
-        <td><a th:href="@{/admin/{id}(id=${user.getId()})}" th:text="${user.getLastName()}">user</a></td>
-        <td><a th:href="@{/admin/{id}(id=${user.getId()})}" th:text="${user.getAge()}">user</a></td>
-        <td><a th:href="@{/admin/{id}/edit(id=${user.getId()})}"><input type="submit" value="Изменить"/></a></td>
-        <td>
-            <form th:method="delete" th:action="@{/admin/{id}(id=${user.getId()})}">
-                <input type="submit" value="Удалить"/>
-            </form></td>
+        <td><a th:href="@{/user/{id}(id=${user.getId()})}" th:text="${user.getId()}">user</a></td>
+        <td><a th:href="@{/user/{id}(id=${user.getId()})}" th:text="${user.getUsername()}">user</a></td>
+        <td><a th:href="@{/user/{id}(id=${user.getId()})}" th:text="${user.getLastName()}">user</a></td>
+        <td><a th:href="@{/user/{id}(id=${user.getId()})}" th:text="${user.getAge()}">user</a></td>
     </tr>
 </table>
-
-<br/>
-<table>
-    </tr>
-    <td>
-        <form action="/admin/new">
-            <button type="submit">Добавить нового пользователя</button>
-        </form>
-    </td>
-
+<tr>
     <td>
         <form action="/logout">
             <button type="submit">Выйти</button>
         </form>
     </td>
-    </tr>
+</tr>
 </table>
 </body>
 </html>
