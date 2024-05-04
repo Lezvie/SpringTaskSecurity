@@ -7,9 +7,9 @@ public interface UserService {
     void create (User user);
     User getUserById (Long id);
     void delete (Long id);
-    List<User> getList();
+    List<User> getUserAndRoles();
 
-    User getUserAndRoles(User user, String[] roles);
+    User setRoleByUser (User user, String[] roles);
 
     List<User> getUserByUsername (String name);
 

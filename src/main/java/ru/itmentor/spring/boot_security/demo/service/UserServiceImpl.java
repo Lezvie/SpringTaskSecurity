@@ -46,13 +46,13 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     }
 
     @Override
-    public List<User> getList() {
+    public List<User> getUserAndRoles() {
         return userRepository.findAll();
     }
 
 
     @Override
-    public User getUserAndRoles(User user, String[] roles) {
+    public User setRoleByUser (User user, String[] roles) {
         user.setRoles(roleService.getRoleByName(roles));
         return user;
     }

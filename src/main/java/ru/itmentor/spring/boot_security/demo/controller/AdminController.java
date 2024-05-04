@@ -21,7 +21,7 @@ public class AdminController {
 
    @GetMapping("/admin")
    public String getAllUser(Model model) {
-      model.addAttribute("users", userService.getList());
+      model.addAttribute("users", userService.getUserAndRoles());
       return "index";
    }
    @GetMapping("/admin/new")
@@ -32,7 +32,7 @@ public class AdminController {
    }
    @PostMapping("/admin")
    public String create(@ModelAttribute("user") User user,@RequestParam(value = "nameRoles", required = false) String[] roles) {
-      userService.getUserAndRoles(user,roles);
+      userService.setRoleByUser(user,roles);
       userService.create(user);
       return "redirect:/admin";
    }
@@ -49,7 +49,7 @@ public class AdminController {
    }
    @PatchMapping("/admin/{id}")
    public String updateUser(@ModelAttribute("user") User user, @RequestParam(value = "nameRoles", required = false) String[] roles) {
-      userService.getUserAndRoles(user,roles);
+      userService.setRoleByUser(user,roles);
       userService.create(user);
       return "redirect:/admin";
    }

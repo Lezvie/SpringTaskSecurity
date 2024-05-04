@@ -17,7 +17,7 @@ public class UserController {
     }
 
     @GetMapping()
-    public String getAllUser(Principal principal,Model model) {
+    public String getUserPage(Principal principal,Model model) {
         model.addAttribute("users", userService.getUserByUsername(principal.getName()));
         return "userIndex";
     }
